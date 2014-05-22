@@ -1,6 +1,7 @@
 Mozbii::Application.routes.draw do
   devise_for :users
-  devise_for :models
+  # devise_for :models
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -56,7 +57,8 @@ Mozbii::Application.routes.draw do
   #     resources :products
   #   end
 
-  namespace :api do
-   resources :users, :defaults => { :format => 'xml' }
+  namespace :api, :defaults => { :format => 'json' } do
+   resources :users
+   resources :tokens, :only => [:create, :destroy]
   end
 end
