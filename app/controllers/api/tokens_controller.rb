@@ -24,7 +24,8 @@ class Api::TokensController < ApplicationController
     end
 
     # http://rdoc.info/github/plataformatec/devise/master/Devise/Models/TokenAuthenticatable
-    @user.ensure_authentication_token!
+    @user.ensure_authentication_token
+    @user.save!
 
     if not @user.valid_password?(password)
       logger.info("User #{email} failed signin, password \"#{password}\" is invalid")
