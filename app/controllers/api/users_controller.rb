@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
   # http_basic_authenticate_with :name => "myfinance", :password => "credit123"
 
   # skip_before_filter :authenticate_user! # we do not need devise authentication here
-  before_filter :authenticate_user! # we do not need devise authentication here
+  before_filter :authenticate_user!, :except => [:create] # we do not need devise authentication here
   before_filter :fetch_user, :except => [:index, :create]
 
   def fetch_user
@@ -25,7 +25,11 @@ class Api::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params.require(:user).permit(:password, :email))
+    # respond_to do |format|
+    #   format.json { render json: params.require(:user).permit(:email, :password, :password_confirmation), status: :created }
+      # params.require(:user).permit(:email, :password, :password_confirmation)
+    # end
+    @user = User.new(params.require(:user).permit(:email, :password, :password_confirmation))
     # @user.temp_password = Devise.friendly_token
     respond_to do |format|
       if @user.save
