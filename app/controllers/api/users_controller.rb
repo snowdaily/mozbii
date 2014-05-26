@@ -1,6 +1,7 @@
 class Api::UsersController < ApplicationController
   # http_basic_authenticate_with :name => "myfinance", :password => "credit123"
 
+  skip_before_filter :verify_authenticity_token
   # skip_before_filter :authenticate_user! # we do not need devise authentication here
   before_filter :authenticate_user!, :except => [:create] # we do not need devise authentication here
   before_filter :fetch_user, :except => [:index, :create]
