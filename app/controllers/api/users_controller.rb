@@ -6,6 +6,7 @@ class Api::UsersController < ApplicationController
   before_filter :authenticate_user!, :except => [:create] # we do not need devise authentication here
   before_filter :fetch_user, :except => [:index, :create]
 
+  respond_to :json
   def fetch_user
     @user = User.find_by_id(params[:id])
   end
