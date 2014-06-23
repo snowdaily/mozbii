@@ -48,3 +48,7 @@ gem 'capistrano-rails', group: :development
 
 gem 'devise'
 gem 'mysql2'
+
+gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
