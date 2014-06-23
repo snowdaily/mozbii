@@ -19,5 +19,14 @@ module Mozbii
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # Explicitly register the extensions we are interested in compiling
+    config.assets.precompile.push(Proc.new do |path|
+    File.extname(path).in? [
+      '.html', '.erb', '.haml',                 # Templates
+      '.png',  '.gif', '.jpg', '.jpeg',         # Images
+      '.eot',  '.otf', '.svc', '.woff', '.ttf', # Fonts
+    ]
+    end)
   end
 end
