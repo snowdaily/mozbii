@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::UsersController < Api::BaseController
   # http_basic_authenticate_with :name => "myfinance", :password => "credit123"
 
   skip_before_filter :verify_authenticity_token

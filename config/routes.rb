@@ -1,5 +1,8 @@
 Mozbii::Application.routes.draw do
-  devise_for :users
+  devise_for :users, controllers: { sessions: "sessions" }
+  devise_scope :user do
+    post "password", to: "sessions#password"
+  end
   # devise_for :models
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -61,4 +64,8 @@ Mozbii::Application.routes.draw do
    resources :users
    resources :tokens, :only => [:create, :destroy]
   end
+
+  resources :index, :ufro
+
+  root "index#index"
 end
