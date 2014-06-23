@@ -2,6 +2,7 @@ Mozbii::Application.routes.draw do
   devise_for :users, controllers: { sessions: "sessions", passwords: "passwords" }
   devise_scope :user do
     post "password", to: "sessions#password"
+    put "password", to: "passwords#update"
   end
   # devise_for :models
 
