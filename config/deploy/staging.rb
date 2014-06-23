@@ -16,6 +16,8 @@ role :db,  %w{mozbii@staging.mozbii.com}
 # used to set extended properties on the server.
 
 server 'staging.mozbii.com', user: 'mozbii', roles: %w{web app}, my_property: :my_value
+# ask :branch, proc { `git rev-parse --abbrev-ref release`.chomp }
+set :deploy_to, "/home/mozbii/mozbii_staging"
 
 
 # Custom SSH Options
