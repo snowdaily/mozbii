@@ -44,11 +44,11 @@ staging:
   host : "127.0.0.1"
   encoding : "utf8"
   username : "mozbii"
-  password : "mozbii2gary"
+  password : ""
 production:
   adapter: "mysql2"
   database: "mozbii"
   host : "127.0.0.1"
   encoding : "utf8"
   username : "mozbii"
-  password : "mozbii2gary"
+  password : ""
