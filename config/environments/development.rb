@@ -38,7 +38,7 @@ Mozbii::Application.configure do
     :port => 587,
     :authentication => :plain,
     :domain => 'gmail.com',
-    :user_name => 'snow.daily@gmail.com',
-    :password => ''
+    :user_name => 'jeremyufro@gmail.com',
+    :password => '06252014'
   }
 end

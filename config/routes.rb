@@ -62,7 +62,11 @@ Mozbii::Application.routes.draw do
   #   end
 
   namespace :api, :defaults => { :format => 'json' } do
-   resources :users
+   resources :users do
+    collection do
+      post :forgot_password
+    end
+   end
    resources :tokens, :only => [:create, :destroy]
   end
 

@@ -67,4 +67,39 @@ class Api::UsersController < Api::BaseController
       end
     end
   end
+
+  def forgot_password
+    email = params[:email]
+
+    if email.nil?
+       render :status=>400,
+              :json=>{:message=>"The request must contain the user email."}
+       return
+    end
+
+    user = User.find_by_email(email.downcase)
+
+    if user.nil?
+      logger.info("User #{email} failed forgot password, user cannot be found.")
+      render :status=>401, :json=>{:message=>"Invalid email."}
+      return
+    end
+
+    user.send_reset_password_instructions
+
+    # respond_to do |format|
+    #   format.json { render json: { :result => true }, status: :ok }
+    #   format.xml { render xml: { :result => true }, status: :ok }
+    # end
+    respons_to_format(:ok, true, '')
+  end
+
+  private
+
+  def respons_to_format(status, result, msg)
+    respond_to do |format|
+      format.json { render json: { :result => result, :message => msg }, status: status }
+      format.xml { render xml: { :result => result, :message => msg }, status: status  }
+    end
+  end
 end

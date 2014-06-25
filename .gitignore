@@ -16,3 +16,5 @@
 /tmp
 
 /config/database.yml
+/config/environments/development.rb
+/config/environments/production.rb
