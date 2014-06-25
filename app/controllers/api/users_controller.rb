@@ -3,7 +3,7 @@ class Api::UsersController < Api::BaseController
 
   skip_before_filter :verify_authenticity_token
   # skip_before_filter :authenticate_user! # we do not need devise authentication here
-  before_filter :authenticate_user!, :except => [:create] # we do not need devise authentication here
+  before_filter :authenticate_user!, :except => [:create, :forgot_password] # we do not need devise authentication here
   before_filter :fetch_user, :except => [:index, :create]
 
   respond_to :json
