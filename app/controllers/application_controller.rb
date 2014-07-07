@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   def configure_permitted_parameters
     # devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(roles: [], :email, :password, :password_confirmation) }
   end
+
+  def after_sign_in_path_for(resource)
+      ufro_index_path
+  end
 end
