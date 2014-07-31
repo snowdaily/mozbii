@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140731040907) do
 
   create_table "works", force: true do |t|
     t.string   "name"
-    t.text     "data"
+    t.text     "data",       limit: 16777215
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
