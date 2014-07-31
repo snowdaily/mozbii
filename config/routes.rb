@@ -65,6 +65,7 @@ Mozbii::Application.routes.draw do
    resources :users do
     collection do
       post :forgot_password
+      post :work_create
     end
    end
    resources :tokens, :only => [:create, :destroy]

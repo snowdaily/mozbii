@@ -68,6 +68,21 @@ class Api::UsersController < Api::BaseController
     end
   end
 
+  def work_create
+    @user = User.find_by_authentication_token(params[:auth_token])
+    # render :json => {:user => @user.inspect}
+    # return
+    respond_to do |format|
+      if @user.works.create(:name => params[:name], :data => params[:data])
+        format.json { head :no_content, status: :ok }
+        format.xml { head :no_content, status: :ok }
+      else
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.xml { render xml: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def forgot_password
     email = params[:email]
 
