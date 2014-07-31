@@ -2436,7 +2436,7 @@ var App = function () {
 	/*	Handle Colorbox
 	/*-----------------------------------------------------------------------------------*/
 	var handleColorbox = function () {
-		$('.colorbox-button').colorbox({rel:'colorbox-button',maxWidth:'95%', maxHeight:'95%'});
+		$('.colorbox-button').colorbox({rel:'colorbox-button',maxWidth:'95%', maxHeight:'95%', iframe: true, width: '800px', height: '680px'});
 		/* Colorbox resize function */
 		var resizeTimer;
 		function resizeColorBox()

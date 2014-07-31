@@ -1,0 +1,13 @@
+!!!5
+%html
+  %head
+    = javascript_include_tag "http://w.sharethis.com/button/buttons.js"
+    :javascript
+      stLight.options({publisher: "ff07198f-f4d2-42ec-820b-48da31c13e96", doNotHash: false, doNotCopy: false, hashAddressBar: false});
+  %body
+    %img.img-responsive{alt: "", src: "#{@work.data}"}
+    %br
+    %div{:style => 'text-align: center'}
+      %span.st_facebook_large{displaytext: "Facebook"}
+      %span.st_twitter_large{displaytext: "Tweet"}
+      %span.st_googleplus_large{displaytext: "Google +"}

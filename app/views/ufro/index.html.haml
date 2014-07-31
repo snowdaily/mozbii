@@ -1,0 +1,55 @@
+.container
+  .row
+    #content.col-lg-12{style: "min-height:801px !important"}
+      / PAGE HEADER
+      .row
+        .col-sm-12
+          .page-header
+            / STYLER
+            / /STYLER
+            / BREADCRUMBS
+            %ul.breadcrumb
+              %li
+                %i.fa.fa-home
+                %a{href: "index.html"} Home
+              %li Ufro
+            / /BREADCRUMBS
+            .clearfix
+              %h3.content-title.pull-left Ufro
+            .description Portfolio Gallery
+      / /PAGE HEADER
+      / GALLERY
+      .row
+        .col-md-12
+          / BOX
+          .box
+            .box-title
+              %h4
+                %i.fa.fa-bars>
+                Portfolio
+              .tools
+                %a.config{"data-toggle" => "modal", href: "#box-config"}
+                  %i.fa.fa-cog
+                %a.reload{href: "javascript:;"}
+                  %i.fa.fa-refresh
+                %a.collapse{href: "javascript:;"}
+                  %i.fa.fa-chevron-up
+                %a.remove{href: "javascript:;"}
+                  %i.fa.fa-times
+            .box-body.clearfix
+              #filter-items.row.isotope{style: "position: relative; overflow: hidden; height: 434px;"}
+                - @works.each_with_index do |w, i|
+                  .col-md-3.category_1.item.isotope-item{style: "position: absolute; left: 0px; top: 0px; -webkit-transform: translate3d(0px, 0px, 0px);"}
+                    .filter-content
+                      %img.img-responsive{alt: "", src: "#{w.data}"}
+                      .hover-content.animated.fadeOut{style: "display: block;"}
+                        %h4 #{w.name}
+                        %a.btn.btn-warning.hover-link.colorbox-button.cboxElement{href: "#{ufro_path(w)}", title: "Image Title"}
+                          %i.fa.fa-search-plus.fa-1x
+          / /BOX
+      / /GALLERY
+      .footer-tools
+        %span.go-top
+          %i.fa.fa-chevron-up
+          Top
+    / /CONTENT

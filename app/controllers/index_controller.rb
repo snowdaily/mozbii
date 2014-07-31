@@ -3,6 +3,7 @@ class IndexController < ApplicationController
   before_action :set_page
 
   def index
+    @works = current_user.works
   end
 
   private
