@@ -70,15 +70,13 @@ class Api::UsersController < Api::BaseController
 
   def work_create
     @user = User.find_by_authentication_token(params[:auth_token])
-    # render :json => {:user => @user.inspect}
-    # return
     respond_to do |format|
       if @user.works.create(:name => params[:name], :data => params[:data])
-        format.json { head :no_content, status: :ok }
-        format.xml { head :no_content, status: :ok }
+        format.json { render :json => {:success => true, :message => ''}, status: :created }
+        format.xml { render :json => {:success => true, :message => ''}, status: :created }
       else
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-        format.xml { render xml: @user.errors, status: :unprocessable_entity }
+        format.json { render :json => {:success => false, :message => @user.errors.inspect}, status: :unprocessable_entity }
+        format.xml { render :xml => {:success => false, :message => @user.errors.inspect}, status: :unprocessable_entity }
       end
     end
   end
