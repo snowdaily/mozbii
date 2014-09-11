@@ -4,9 +4,9 @@
 # is considered to be the first unless any hosts have the primary
 # property set.  Don't declare `role :all`, it's a meta role.
 
-role :app, %w{mozbii@www.mozbii.com}
-role :web, %w{mozbii@www.mozbii.com}
-role :db,  %w{mozbii@www.mozbii.com}
+role :app, %w{mozbii@apps.ufro.com}
+role :web, %w{mozbii@apps.ufro.com}
+role :db,  %w{mozbii@apps.ufro.com}
 
 
 # Extended Server Syntax
@@ -15,7 +15,7 @@ role :db,  %w{mozbii@www.mozbii.com}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server 'www.mozbii.com', user: 'mozbii', roles: %w{web app}, my_property: :my_value
+server 'apps.ufro.com', user: 'mozbii', roles: %w{web app}, my_property: :my_value
 set :deploy_to, '/home/mozbii/mozbii/'
 
 
